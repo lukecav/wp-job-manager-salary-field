@@ -16,10 +16,10 @@ Domain Path: /languages
 	License URI: http://www.gnu.org/licenses/gpl-3.0.html
 */
 
-// Add your own function to filter the fields
+// Add your own function to filter the fields in admin
 add_filter( 'job_manager_job_listing_data_fields', 'admin_add_salary_field' );
 
-    // Here we create the function for this custom field   
+    // Here we create the function for this custom field in admin  
     function admin_add_salary_field( $fields ) {
   $fields['_job_salary'] = array(
     'label'       => __( 'Salary ($)', 'job_manager' ),
@@ -30,10 +30,10 @@ add_filter( 'job_manager_job_listing_data_fields', 'admin_add_salary_field' );
   return $fields;
 }
 
-// Add your own function to filter the fields
+// Add your own function to filter the fields in frontend
 add_filter( 'submit_job_form_fields', 'frontend_add_salary_field' );
 
-    // Here we create the function for this custom field   
+    // Here we create the function for this custom field in frontend
 function frontend_add_salary_field( $fields ) {
   $fields['job']['job_salary'] = array(
     'label'       => __( 'Salary ($)', 'job_manager' ),
@@ -45,10 +45,10 @@ function frontend_add_salary_field( $fields ) {
   return $fields;
 }
 
-// Add your own function to filter the fields
+// Add your salary field to display on single job page
 add_action( 'single_job_listing_meta_end', 'display_job_salary_data' );
 
-    // Here we create the function for this custom field   
+    // Here we create the function for this custom field to display on single job page 
    function display_job_salary_data() {
   global $post;
 
